@@ -5,4 +5,4 @@ const router=Router();
 router.get("/", getProjects);
 router.post("/", createProjects);
 
-export default router;      
+export default router;

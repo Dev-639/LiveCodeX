@@ -8,14 +8,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react'
+import { useGetProjectsQuery } from '@/state/api';
 
 const Sidebar = () => {
     const [showProjects, setShowProjects]=useState(true);
     const [showPriority, setShowPriority]=useState(true);
 
+    const {data: projects}=useGetProjectsQuery();
+
     const dispatch=useAppDispatch();
     const isSidebarCollapsed=useAppSelector((state)=>state.global.isSidebarCollapsed,);
-
     const sidebarClassNames= `fixed flex flex-col h-[100%] justify-between shadow-xl transtion-all duration-300 h-full dark:bg-black overflow-y-auto bg-white ${isSidebarCollapsed?"w-0 hidden":"w-64"}`;
   return( <div className={sidebarClassNames}>
     <div className="flex h-[100%] w-full flex-col justify-start">
@@ -85,6 +87,14 @@ const Sidebar = () => {
                 )}
         </button>
         {/* Projects List */}
+
+        {showProjects && projects?.map((project)=>(
+        <SidebarLink key={project.id}
+                     icon={Briefcase}
+                     label={project.name} 
+                     href={`/projects/${project.id}`}
+        />
+        ))}
 
         {/* Priority Links */}
          <button onClick={()=> setShowPriority((prev)=> !prev)}

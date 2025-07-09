@@ -23,10 +23,11 @@ const getProjects = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.getProjects = getProjects;
 const createProjects = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, description, startDate, endDate } = req.body;
+    const { id, name, description, startDate, endDate } = req.body;
     try {
         const newProject = yield prisma.project.create({
             data: {
+                id,
                 name,
                 description,
                 startDate,

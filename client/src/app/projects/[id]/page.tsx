@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 import ProjectHeader from "@/app/projects/ProjectHeader";
 import BoardView from "../BoardView";
-// import Board from "../BoardView";
-// import List from "../ListView";
-// import Timeline from "../TimelineView";
+import List from "../ListView";
+import Timeline from "../Timeline";
 // import Table from "../TableView";
 // import ModalNewTask from "@/components/ModalNewTask";
 
@@ -29,13 +28,13 @@ const Project = ({ params }: Props) => {
       {activeTab === "Board" && (
         <BoardView id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )}
-      {/* {activeTab === "List" && (
+      {activeTab === "List" && (
         <List id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )}
       {activeTab === "Timeline" && (
         <Timeline id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )}
-      {activeTab === "Table" && (
+      {/* {activeTab === "Table" && (
         <Table id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )} */}
     </div>

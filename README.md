@@ -1,2 +1,2 @@
 # LiveCodeX
-LiveCodeX is a real-time collaborative code editor built with Next.js, Node.js, and AWS. It allows multiple users to write, edit, and debug code together live in the browser with features like multi-language support, live chat, and secure session sharing.
+LiveCodex is a full-stack project and task management web application designed to streamline team collaboration, issue tracking, and progress monitoring. Built using React.js, Redux, and Next.js on the frontend, the app allows users to create, assign, and prioritize tasks across multiple projects in a clean and intuitive UI.

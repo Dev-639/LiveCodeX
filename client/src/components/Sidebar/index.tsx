@@ -17,8 +17,9 @@ const Sidebar = () => {
     const {data: projects}=useGetProjectsQuery();
 
     const dispatch=useAppDispatch();
+    
     const isSidebarCollapsed=useAppSelector((state)=>state.global.isSidebarCollapsed,);
-    const sidebarClassNames= `fixed flex flex-col h-[100%] justify-between shadow-xl transtion-all duration-300 h-full dark:bg-black overflow-y-auto bg-white ${isSidebarCollapsed?"w-0 hidden":"w-64"}`;
+const sidebarClassNames= `fixed flex z-50 flex-col h-[100%] justify-between shadow-xl transition-all duration-500 h-full dark:bg-black overflow-y-auto bg-white ${isSidebarCollapsed?"w-0 opacity-0 pointer-events-none" : 'w-64 opacity-100'}`;
   return( <div className={sidebarClassNames}>
     <div className="flex h-[100%] w-full flex-col justify-start">
         {/* Top Logos */}

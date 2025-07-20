@@ -231,8 +231,9 @@ const Task=({task}: TaskProps)=>{
                 </div>
           </div>
       </div>
-    )
+    ) 
 
 };
 
 export default BoardView;
+

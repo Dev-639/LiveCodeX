@@ -25,6 +25,9 @@ export const dataGridSxStyles = (isDarkMode: boolean) => {
     "& .MuiDataGrid-row": {
       borderBottom: `1px solid ${isDarkMode ? "#2d3135" : "e5e7eb"}`,
     },
+    "& .MuiDataGrid-row:hover": {
+      backgroundColor: isDarkMode ? "#2a2a2a" : "#d1d5db", 
+    },
     "& .MuiDataGrid-withBorderColor": {
       borderColor: `${isDarkMode ? "#2d3135" : "e5e7eb"}`,
     },

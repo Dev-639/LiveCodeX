@@ -88,3 +88,29 @@ export const updateTaskStatus=async(
         res.status(500).json({message: `Error updating tasks ${error.message}`});
     }
 };
+
+
+export const getUserTasks=async(
+    req: Request,
+    res: Response,
+): Promise<void> =>{
+    const {userId}=req.params;
+    try {
+        const tasks=await prisma.task.findMany({
+            where: {
+                OR:[
+                    {authorUserId: Number(userId)},
+                    {assignedUserId: Number(userId)}
+                ],
+            },
+            include: {
+                author: true,
+                assignee: true,
+            }
+        });
+        res.json(tasks);
+
+    } catch (error) {
+        res.status(500).json({message: "Error getting User's tasks"});
+    }
+};

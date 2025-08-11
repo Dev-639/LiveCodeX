@@ -112,14 +112,14 @@ export const api = createApi({
         { type: "Tasks", id: `PROJECT-${task.projectId}` },
       ],
     }),
-    updateTaskStatus: build.mutation<Task, { taskId: number; status: string }>({
+    updateTaskStatus: build.mutation<Task, { taskId: number; status: string; projectId: number }>({
       query: ({ taskId, status }) => ({
         url: `tasks/${taskId}/status`,
         method: "PATCH",
         body: { status },
       }),
-      invalidatesTags: (result, error, { taskId }) => [
-        { type: "Tasks", id: taskId },
+      invalidatesTags: (result, error, { projectId }) => [
+        { type: "Tasks", id: `PROJECT-${projectId}` },
       ],
     }),
     getUsers: build.query<User[], void>({

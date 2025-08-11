@@ -24,9 +24,9 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
 
   const [updateTaskStatus]=useUpdateTaskStatusMutation();
 
-  const moveTask= (taskId: number, toStatus: string)=>{
-    updateTaskStatus({ taskId, status:toStatus});
-  };
+  const moveTask = (taskId: number, toStatus: string) => {
+    updateTaskStatus({ taskId, status: toStatus, projectId: Number(id) });
+  };  
 
   if(isLoading) return <div>Loading...</div>
   if(error) return <div>An error occured while fetching task.</div>

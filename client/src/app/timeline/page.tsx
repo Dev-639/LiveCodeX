@@ -77,4 +77,4 @@ const Timeline = () => {
   )
 }
 
-export default Timeline
+export default Timeline;

@@ -8,4 +8,4 @@ const Backlog = () => {
   )
 }
 
-export default Backlog
+export default Backlog;

@@ -8,4 +8,4 @@ const Medium = () => {
   )
 }
 
-export default Medium
+export default Medium;

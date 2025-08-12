@@ -84,4 +84,4 @@ const Timeline = ({id, setIsModalNewTaskOpen}: Props) => {
   )
 }
 
-export default Timeline
+export default Timeline;

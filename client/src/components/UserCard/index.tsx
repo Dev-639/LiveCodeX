@@ -26,4 +26,4 @@ const UserCard = ({user}: Props) => {
   )
 }
 
-export default UserCard
+export default UserCard;

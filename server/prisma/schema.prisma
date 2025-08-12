@@ -38,7 +38,7 @@ model Project {
   startDate    DateTime?
   endDate      DateTime?
   tasks        Task[]
-  projectTeams ProjectTeam[]
+  projectTeams ProjectTeam[]  
 }
 
 model ProjectTeam {

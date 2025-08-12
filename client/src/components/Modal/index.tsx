@@ -31,6 +31,6 @@ const Modal = ({children, isOpen, onClose, name}: Props) => {
         </div>,
         document.body,
     );
-}
+};
 
 export default Modal

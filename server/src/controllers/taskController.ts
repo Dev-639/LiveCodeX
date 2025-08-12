@@ -32,7 +32,6 @@ export const createTasks=async(
     res: Response,
 ): Promise<void> =>{
     const {
-        id,
         title,
         description, 
         status, 
@@ -47,7 +46,6 @@ export const createTasks=async(
     try {
         const newTask=await prisma.task.create({
             data: {
-                id,
                 title,
                 description, 
                 status, 

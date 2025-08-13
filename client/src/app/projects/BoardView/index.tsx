@@ -5,7 +5,6 @@ import {HTML5Backend} from 'react-dnd-html5-backend';
 import {Task as TaskType} from "@/state/api"
 import { EllipsisVertical, MessageSquareMore, Plus } from "lucide-react";
 import Image from "next/image";
-import { isDeepStrictEqual } from "util";
 import {format} from "date-fns";
 
 type BoardProps = {

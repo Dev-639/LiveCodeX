@@ -33,8 +33,7 @@ export const createTasks=async(
 ): Promise<void> =>{
     const {
         title,
-        description, 
-        status, 
+        description,
         priority,
         tags,
         startDate,
@@ -48,7 +47,7 @@ export const createTasks=async(
             data: {
                 title,
                 description, 
-                status, 
+                status: "To Do", 
                 priority,
                 tags,
                 startDate,

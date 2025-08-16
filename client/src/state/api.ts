@@ -118,9 +118,22 @@ export const api = createApi({
         method: "PATCH",
         body: { status },
       }),
-      invalidatesTags: (result, error, { projectId }) => [
-        { type: "Tasks", id: `PROJECT-${projectId}` },
-      ],
+      async onQueryStarted({ taskId, status, projectId }, { dispatch, queryFulfilled }) {
+        // Optimistic Update
+        const patchResult = dispatch(
+          api.util.updateQueryData("getTasks", { projectId }, (draft) => {
+            const task = draft.find((t) => t.id === taskId);
+            if (task) {
+              task.status = status as Status; // update instantly
+            }
+          })
+        );
+        try {
+          await queryFulfilled;
+        } catch {
+          patchResult.undo(); // rollback if request fails
+        }
+      },
     }),
     getUsers: build.query<User[], void>({
       query: ()=> "users",

@@ -9,8 +9,11 @@ datasource db {
 
 model User {
   userId            Int     @id @default(autoincrement())
-  cognitoId         String  @unique
+  email             String  @unique
   username          String  @unique
+  password          String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
   profilePictureUrl String?
   teamId            Int?
 

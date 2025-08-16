@@ -9,10 +9,13 @@ import taskRoutes from "./routes/taskRoutes"
 import searchRoutes from "./routes/searchRoutes"
 import userRoutes from "./routes/userRoutes"
 import teamRoutes from "./routes/teamRoutes"
+import cookieParser from "cookie-parser"
+
 
 dotenv.config();
 const app=express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy : "cross-origin"}));
 app.use(morgan("common"));
@@ -32,6 +35,7 @@ app.use("/tasks", taskRoutes);
 app.use("/search", searchRoutes);
 app.use("/users", userRoutes);
 app.use("/teams", teamRoutes);
+
 
 
 const port=Number(process.env.PORT) || 3000;
